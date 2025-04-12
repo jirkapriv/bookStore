@@ -121,6 +121,21 @@ export default function UpdateBook() {
           />
         </div>
 
+        <div className="mb-3">
+          <label htmlFor="price" className="form-label">
+            Img Path
+          </label>
+          <input
+            type="text"
+            defaultValue={book.imgPath}
+            className="form-control"
+            required
+            name="imgPath"
+            placeholder="Enter imgPath"
+            onChange={handleChange}
+          />
+        </div>
+
         <div className="d-flex justify-content-between">
           <button type="submit" className="btn btn-primary">
             Submit

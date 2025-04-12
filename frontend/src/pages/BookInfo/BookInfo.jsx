@@ -66,6 +66,9 @@ export default function BookInfo(props) {
               Price: <strong>${book.price}</strong>
             </h5>
           </div>
+          <div>
+            <img src={book.imgPath} alt="idk" className="img-fluid mb-3" style={{ maxHeight: "200px", width: "auto", objectFit: "contain" }}/>
+          </div>
           <div className="text-center">
             <Link to="/" className="btn btn-secondary">
               Go back

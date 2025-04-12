@@ -95,6 +95,23 @@ export default function CreateBook() {
                     />
                 </div>
 
+                <div className="mb-3">
+                    <label htmlFor="imgPath" className="form-label">
+                        img Path
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        required
+                        name="imgPath"
+                        placeholder="Enter path to img"
+                        onChange={handleChange}
+                    />
+                </div>
+
+
+
+
                 <div className="d-flex justify-content-between">
                     <button type="submit" className="btn btn-primary">
                         Submit

@@ -7,6 +7,7 @@ exports.createBook = async (req, res) => {
       author: req.body.author,
       published: req.body.published,
       price: req.body.price,
+      imgPath: req.body.imgPath,
     });
     const result = await newBook.save();
 
@@ -64,6 +65,7 @@ exports.updateBook = async (req, res) => {
       author: req.body.author,
       published: req.body.published,
       price: req.body.price,
+      imgPath: req.body.imgPath
     };
 
     const result = await Book.findByIdAndUpdate(req.params.id, updatedBook);
