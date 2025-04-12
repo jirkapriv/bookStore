@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { createBook } from "../../models/book";
+import { createBook } from "../../models/Book";
 
 export default function CreateBook() {
     const [formData, setFormData] = useState({});

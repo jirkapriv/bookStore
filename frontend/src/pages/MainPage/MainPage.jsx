@@ -1,4 +1,4 @@
-import { getAllBooks } from "../../models/book";
+import { getAllBooks } from "../../models/Book";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../index.css";

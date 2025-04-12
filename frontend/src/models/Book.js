@@ -52,4 +52,40 @@ export const createBook = async (formData) => {
   };
 };
 
+export const updateBook = async (id, formData) => {
+  const req = await fetch(`${url}/${id}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+    body: JSON.stringify(formData)
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    payload: data.payload,
+    msg: data.msg,
+  };
+};
+export const deleteBook = async (id) => {
+  const req = await fetch(`${url}/${id}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "DELETE",
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    payload: data.payload,
+    msg: data.msg,
+  };
+};
+
 

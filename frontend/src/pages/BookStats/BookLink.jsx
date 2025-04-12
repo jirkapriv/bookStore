@@ -8,6 +8,8 @@ export default function BookLink(props) {
         <Link to={`/book/${props._id}`} className="btn btn-primary">
           View Details
         </Link>
+
+
       </div>
     </div>
   );
