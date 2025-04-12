@@ -75,6 +75,7 @@ export default function MainPage() {
                         </div>
                     ))}
                 </div>
+                
 
                 <div className="text-center mt-4">
                     <Link to={"/book/addNewBook"} className="btn btn-success">
