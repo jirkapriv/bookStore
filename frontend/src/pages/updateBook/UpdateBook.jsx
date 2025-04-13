@@ -17,7 +17,7 @@ export default function UpdateBook() {
     if (data.status === 200) {
       const bookData = data.payload;
       setBook(bookData);
-      setFormData(bookData); // optional, if you want to pre-fill the formData too
+      setFormData(bookData);
       setLoaded(true);
     }
   };
@@ -46,14 +46,11 @@ export default function UpdateBook() {
   const sterilizeDate = (rawDate) => {
     return rawDate.split("T")[0];
   };
-  
+
   const cleanDate = book.published ? sterilizeDate(book.published) : "";
   const redirectToSuccessPage = (id) => {
     return navigate(`/book/${id}`);
   };
-
-
-
 
   return (
     <div className="container mt-5">

@@ -9,18 +9,23 @@ exports.createBook = async (req, res) => {
       price: req.body.price,
       imgPath: req.body.imgPath,
     });
+
     const result = await newBook.save();
 
     if (result) {
-      return res
-        .status(200)
-        .send({ msg: "Vse ok kniha vytvorena", payload: result });
+      return res.status(200).json({
+        msg: "Vse ok kniha vytvorena",
+        payload: result,
+      });
+    } else {
+      return res.status(400).json({
+        msg: "Chyba při vytváření knihy",
+      });
     }
-    res.status(500).send({
-      msg: "neco se nepovedlo",
-    });
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(500).json({
+      msg: "Chyba na serveru",
+    });
   }
 };
 
@@ -41,22 +46,22 @@ exports.getAllBooks = async (req, res) => {
   }
 };
 
-exports.getBook = async (req, res) =>{
-    try {
-        const result = await Book.findById(req.params.id);
-    
-        if (result) {
-          return res
-            .status(200)
-            .send({ msg: "Vse ok kniha najita", payload: result });
-        }
-        res.status(500).send({
-          msg: "neco se nepovedlo",
-        });
-      } catch (error) {
-        res.status(500).send(error);
-      }
-}
+exports.getBook = async (req, res) => {
+  try {
+    const result = await Book.findById(req.params.id);
+
+    if (result) {
+      return res
+        .status(200)
+        .send({ msg: "Vse ok kniha najita", payload: result });
+    }
+    res.status(500).send({
+      msg: "neco se nepovedlo",
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 
 exports.updateBook = async (req, res) => {
   try {
@@ -65,7 +70,7 @@ exports.updateBook = async (req, res) => {
       author: req.body.author,
       published: req.body.published,
       price: req.body.price,
-      imgPath: req.body.imgPath
+      imgPath: req.body.imgPath,
     };
 
     const result = await Book.findByIdAndUpdate(req.params.id, updatedBook);
@@ -83,20 +88,19 @@ exports.updateBook = async (req, res) => {
   }
 };
 
-
-exports.deleteBook = async (req, res) =>{
+exports.deleteBook = async (req, res) => {
   try {
-      const result = await Book.findByIdAndDelete(req.params.id);
-  
-      if (result) {
-        return res
-          .status(200)
-          .send({ msg: "Vse ok kniha smazana", payload: result });
-      }
-      res.status(500).send({
-        msg: "neco se nepovedlo",
-      });
-    } catch (error) {
-      res.status(500).send(error);
+    const result = await Book.findByIdAndDelete(req.params.id);
+
+    if (result) {
+      return res
+        .status(200)
+        .send({ msg: "Vse ok kniha smazana", payload: result });
     }
-}
+    res.status(500).send({
+      msg: "neco se nepovedlo",
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
