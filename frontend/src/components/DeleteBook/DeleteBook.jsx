@@ -10,7 +10,7 @@ export default function DeleteBook() {
     if (res.status === 200) {
       navigate("/");
     } else {
-      alert("Failed to delete book.");
+      alert("Failed to delete book, are you Admin?");
     }
   };
 

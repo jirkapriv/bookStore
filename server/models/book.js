@@ -6,7 +6,6 @@ const schema = mongoose.Schema({
   published: { type: Date, required: true },
   price: { type: Number, required: true },
   imgPath: { type: String, required: true },
-
 });
 
 module.exports = mongoose.model("Book2", schema);
